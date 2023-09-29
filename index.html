@@ -6,6 +6,74 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        let numbers = [2, 3, 'g', 'h', 4, 5, 'r', 's', 8, 9, 'j', 'v'];
+        let numb = numbers.filter(number => number > 0);
+        if (numb.length > 0) {
+            function calculate(numb) {
+            let sum = numb.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            return sum / numb.length;
+            }
+        let result = calculate(numb);
+        alert(result);
+        } 
     
+    
+        let x = +prompt ('Введіть перше число');
+        let znak = prompt('Введіть знак дії: +, -, *, /, %, ^ (ступінь )');
+        let y = +prompt('Введіть друге число');
+            function doMath (x,znak,y) {
+                switch(znak) {
+                    case '+':
+                       return (x+y);  
+                    case '-':
+                        return (x-y);
+                    case '*':
+                        return (x*y);
+                    case '/':
+                        if(y !== 0){
+                            return (x/y);    
+                        } else {
+                            return ('На 0 ділити не можна');
+                        }   
+                    case '%':
+                        return (x%y);
+                    case '^':
+                        return Math.pow(x, y);
+                    default:
+                        return ('Невірна дія');                                         
+                }
+            }
+        let result = doMath(x, znak, y);
+        alert(result);
+    
+    
+        let a = +prompt('Введіть кількість підмасивів');
+        let b = +prompt('Введіть кількість елементів у кожному підмасиві');
+            function newArray(a, b) {
+                let result = [];
+                for (let i = 0; i < a; i++) {
+                    let subArray = [];
+                    for (let j = 0; j < b; j++) {
+                        let userInput = prompt(`Введіть значення для елементу ${j + 1} в підмасиві ${i + 1}:`);
+                        subArray.push(userInput);
+                    }
+                    result.push(subArray);
+                }  
+                return result; 
+            }
+        let data = newArray(a, b);
+        alert(JSON.stringify(data));
+            
+        
+        let str = prompt('Введіть довільне речення');
+        let del = prompt('Введіть символи для видалення');
+        function newStr(str,del) {
+            let newS = new RegExp('[' + del + ']', 'g');
+        return str.replace(newS, '');
+        }
+        let resullt = newStr(str, del);
+        alert(resullt);
+        </script>
 </body>
 </html>
